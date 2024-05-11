@@ -8,11 +8,18 @@ function getComputerChoice() {
     return 'paper';
   }
   return 'scissors';
-}
+};
 
 function getHumanChoice() {
-  return prompt('Do you choose: rock, paper, or scissors?');
-}
+  let choice = String(prompt('Do you choose: rock, paper, or scissors?')).toLowerCase();
+  while (['rock', 'paper', 'scissors'].indexOf(choice) < 0) {
+    if (choice === 'null') { 
+      choice = '';
+    }
+    choice = String(prompt(`'${choice}' is not a choice.\nChoose rock, paper, or scissors.`)).toLowerCase();
+  } 
+  return choice;
+};
 
 console.log(getHumanChoice());
 console.log(getComputerChoice());
