@@ -1,5 +1,8 @@
 'use strict'
 
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
   const randNum = Math.floor(Math.random() * 3) + 1;
   if (randNum === 1) {
@@ -21,5 +24,25 @@ function getHumanChoice() {
   return choice;
 };
 
-console.log(getHumanChoice());
-console.log(getComputerChoice());
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice === computerChoice) {
+    return `Tie! You both chose ${computerChoice}`;
+  } else if (humanChoice === 'rock' && computerChoice === 'paper' ||
+      humanChoice === 'paper' && computerChoice === 'scissors' ||
+      humanChoice === 'scissors' && computerChoice === 'rock') {
+    computerScore++;
+    return `You lose! ${computerChoice} beats ${humanChoice}`;
+  } else {
+    humanScore++;
+    return `You win! ${humanChoice} beats ${computerChoice}`;
+  }
+}
+
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
+
+console.log(playRound(humanChoice, computerChoice));
+console.log(humanChoice);
+console.log(computerChoice);
+console.log(`Human Score: ${humanScore}`);
+console.log(`Computer Score: ${computerScore}`);
