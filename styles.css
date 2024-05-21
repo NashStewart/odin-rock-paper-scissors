@@ -7,4 +7,21 @@
 body {
   background-color: #1A1A1A;
   color: gray;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+button {
+  padding: 4px 16px;
+}
+
+#scoreContainer p {
+  margin: 4px
+}
+
+#buttonContainer p { 
+  margin: 0px 0px 8px 0px;
 }
